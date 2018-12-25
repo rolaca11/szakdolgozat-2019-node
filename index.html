@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiveshelly Style-guide</title>
+    <link rel="stylesheet" href="index.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<body class="bg-gray h-100 d-flex flex-column">
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div>
+            <a class="navbar-brand" href="#">Navbar</a>
+        </div>
+        <div class="form-inline d-flex align-items-center">
+            <div class="nav-item dropdown">
+                <button class="btn btn-light dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle" src="https://dummyimage.com/40" />
+                    <span class="navbar-text">Ropi@rolaca11</span>
+                </button>
+                <div class="dropdown-menu rounded-bottom rounded-0" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here, which is long</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <button class="rounded-circle menu-open-button btn btn-primary d-lg-none" data-toggle="float" data-target="#menuPanel" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div id="cover"></div>
+    <div class="container-fluid mt-3 flex-grow-1 d-flex flex-column pb-5">
+        <div class="row flex-grow-1 mr-4 ml-2 justify-content-end">
+            <div id="menuPanel" class="menu-panel col-xl-2 col-lg-3 pl-3 pr-lg-0 pr-3 mt-lg-4 pt-5 pt-lg-0 float-md">
+                <a class="nav-link active" href="#">Aktív link</a>
+                <a class="nav-link disabled" href="#">inaktív link</a>
+                <a class="nav-link" href="#">Normál link</a>
+                <a class="nav-link" href="#">Normál link</a>
+            </div>
+            <div class="border rounded bg-white col-xl-8 col-lg-9 shadow-lg px-4 py-2 d-flex flex-column" style="z-index: 2;">
+                <h1 class="display-1">Headline 1</h1>
+                <h2 class="display-2">Headline 2</h2>
+                <h3 class="display-3">Headline 3</h3>
+                <h4 class="display-4">Headline 4</h4>
+
+                <h1>Headline 1</h1>
+                <h2>Headline 2</h2>
+                <h3>Headline 3</h3>
+                <h4>Headline 4</h4>
+                <h5>Headline 5</h5>
+                <h6>Headline 6</h6>
+
+                <br />
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec nisl at libero finibus imperdiet. Sed volutpat tristique lorem, non lacinia nisi sollicitudin nec. Nam tortor libero, mollis ac turpis eu, euismod facilisis lorem. In ut ex rhoncus, gravida lacus at, tristique nisl. Nam gravida, justo a rhoncus aliquam, ex mi maximus nibh, sit amet porttitor neque leo sed odio. Duis in justo tincidunt, egestas lorem eget, imperdiet lorem. Aenean finibus, justo sit amet ornare aliquet, neque enim dignissim elit, sit amet lobortis libero erat eleifend dolor. Nulla eu congue justo, sit amet condimentum diam. Integer sapien dui, bibendum ut tincidunt et, consequat non libero. Pellentesque consequat mattis malesuada. In fringilla at nibh nec rutrum. Mauris egestas et diam id consectetur. Nulla quis imperdiet lacus. Vivamus eget lacus elit. Vivamus orci dui, fermentum vel accumsan id, ultricies nec quam. Mauris fermentum porttitor felis.</p>
+                <p>Ut eget commodo nisl. Duis sagittis ipsum quis velit egestas, dignissim cursus lorem venenatis. Nam sed erat vel quam gravida vulputate. Nullam auctor lorem vel ipsum efficitur, sed iaculis est finibus. Sed dolor diam, luctus ut ante varius, efficitur euismod tellus. Ut non condimentum arcu. Nullam arcu nulla, accumsan id sollicitudin eget, tempor eu dui. Morbi sem urna, dignissim at pretium non, rutrum non sapien. Sed tincidunt tristique viverra. Maecenas fermentum, magna ut iaculis consequat, erat diam laoreet lorem, nec aliquet ex dui sed nulla. Donec urna sem, congue sit amet finibus quis, sodales quis nulla. Aenean dolor tellus, posuere ac faucibus quis, vehicula eget elit. Phasellus semper, felis quis gravida ultricies, ipsum dui posuere tortor, eu aliquet nunc nulla vitae ligula.</p>
+
+                <br />
+
+                <p><b>Bold</b>, <i>Italic</i> <u>Underlined</u></p>
+
+                <br />
+
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Normal field" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control" required placeholder="Required field" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control" disabled placeholder="Disabled field" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control is-valid" placeholder="Invalid field" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control is-invalid" placeholder="Valid field" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Labeled field" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">HUF</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control" required placeholder="Labeled required field" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">HUF</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control" disabled placeholder="Labeled disabled field" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">HUF</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control is-valid" placeholder="Labeled valid field" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">HUF</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control is-invalid" placeholder="Labeled invalid field" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">HUF</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="password" class="form-control" placeholder="Password" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Labeled invalid field" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <select class="custom-select">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" checked class="custom-control-input" id="customCheck2">
+                            <label class="custom-control-label" for="customCheck2">Check this custom checkbox</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" disabled class="custom-control-input" id="customCheck3">
+                            <label class="custom-control-label" for="customCheck3">Check this custom checkbox</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="customRadio1" name="radio">
+                            <label class="custom-control-label" for="customRadio1">Check this custom checkbox</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" checked class="custom-control-input" id="customRadio2" name="radio">
+                            <label class="custom-control-label" for="customRadio2">Check this custom checkbox</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" disabled class="custom-control-input" id="customRadio3" name="radio">
+                            <label class="custom-control-label" for="customRadio3">Check this custom checkbox</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select class="custom-select">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-lg-8 col-12">
+                        <button type="button" class="btn btn-primary">Primary</button>
+                        <button type="button" class="btn btn-secondary">Secondary</button>
+                        <button type="button" class="btn btn-success">Success</button>
+                        <button type="button" class="btn btn-danger">Danger</button>
+                        <button type="button" class="btn btn-warning">Warning</button>
+                        <button type="button" class="btn btn-info">Info</button>
+                        <button type="button" class="btn btn-dark">Dark</button>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="btn-group">
+                            <button class="btn btn-secondary">First</button>
+                            <button class="btn btn-secondary">Second</button>
+                            <button class="btn btn-secondary">Third</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-lg-8 col-12">
+                        <button type="button" class="btn btn-outline-primary">Primary</button>
+                        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+                        <button type="button" class="btn btn-outline-success">Success</button>
+                        <button type="button" class="btn btn-outline-danger">Danger</button>
+                        <button type="button" class="btn btn-outline-warning">Warning</button>
+                        <button type="button" class="btn btn-outline-info">Info</button>
+                        <button type="button" class="btn btn-outline-dark">Dark</button>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="btn-group">
+                            <button class="btn btn-outline-secondary">First</button>
+                            <button class="btn btn-outline-secondary">Second</button>
+                            <button class="btn btn-outline-secondary">Third</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border rounded bg-white col-xl-2 col-lg-9 col-12 px-4 py-2" style="z-index: 3;">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

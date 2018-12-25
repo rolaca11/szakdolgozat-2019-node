@@ -1,0 +1,205 @@
+$custom-control-indicator-bg: #ffffff;
+$custom-control-indicator-size: 1.4rem;
+$custom-control-gutter: $custom-control-indicator-size + 0.5rem;
+
+$secondary: #fa6d16;
+
+@import "scss/bootstrap";
+@import "float";
+
+
+p {
+    text-align: justify;
+}
+
+input.form-control {
+    &:required {
+        border-color: $blue;
+    }
+
+    &.error {
+        border-color: $red;
+    }
+}
+.menu-open-button {
+    width: $spacer * 5;
+    height: $spacer * 5;
+
+    z-index: 10;
+    position: fixed;
+
+    right: $spacer;
+    bottom: $spacer;
+
+    font-size: $font-size-base * 2;
+}
+
+.menu-panel {
+    @include media-breakpoint-down("md") {
+        position: fixed;
+        left: 0;
+        top: 0;
+
+        width: 70%;
+        height: 100%;
+
+        z-index: 9;
+
+        background-color: $gray-300;
+    }
+}
+
+.btn.dropdown-toggle {
+    position: relative;
+
+    &[aria-expanded="true"] {
+        background-color: $white;
+
+        @include border-bottom-radius(0);
+        border-bottom: 0;
+
+        z-index: 6;
+
+        &, & span {
+            color: $dark;
+        }
+    }
+
+    &[aria-expanded="false"] {
+        background-color: lighten($dark, 10%);
+
+        border-color: darken($white, 40%);
+        z-index: 5;
+
+        &, & span {
+            color: $white;
+        }
+    }
+
+    & + div.dropdown-menu {
+        z-index: 4;
+        top: calc(100% - 3px);
+        right: 0;
+        left: unset;
+    }
+}
+
+#cover {
+    height: 100%;
+    width: 100%;
+
+    background-color: $black;
+
+    opacity: 0.5;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 8;
+
+    display: none;
+
+    @include media-breakpoint-up("lg") {
+        display: none !important;
+    }
+}
+
+.btn {
+    font-weight: 600!important;
+}
+
+.input-group {
+    margin: $spacer*0.5 0;
+}
+
+.custom-control-label::before {
+    border: solid $border-width $gray-500;
+}
+
+.custom-control-label {
+    height: $custom-control-gutter;
+}
+
+.input-group-text .custom-select {
+    border: none;
+    background-color: transparent;
+    line-height: 1;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: auto;
+}
+
+.nav-link {
+    background: $blue;
+    color: $white;
+
+    @include transition($transition-base, line-height 0.1s ease-in-out);
+
+    z-index: 1;
+    position: relative;
+
+    margin-bottom: $spacer * .1875;
+
+    @media (min-width: map_get($grid-breakpoints, "lg")) {
+        margin-left: $spacer * 1.875;
+        text-align: right;
+        @include border-left-radius($border-radius);
+    }
+
+    @media (max-width: map_get($grid-breakpoints, "lg")) {
+        text-align: left;
+
+        &:first-child {
+            @include border-top-radius($border-radius);
+        }
+    }
+
+    &.active {
+        background-color: $white;
+        color: $blue;
+
+        @media (min-width: map_get($grid-breakpoints, "lg")) {
+            margin-left: $spacer * .1875;
+        }
+
+        box-shadow: 0 0 0 $spacer*0.5 rgba($gray-300, .175) !important;
+    }
+
+    &:hover:not(.disabled):not(.active) {
+        background-color: darken($blue, 3%);
+        color: #ffffff;
+
+        box-shadow: 0 0 0 $spacer*0.5 rgba( $blue, .2 ) !important;
+
+        @media (min-width: map_get($grid-breakpoints, "lg")) {
+            margin-left: 0;
+        }
+    }
+
+    &:hover:not(.disabled) {
+        margin-left: 0;
+        font-size: $font-size-base * 1.1;
+
+        z-index: 0;
+    }
+
+    &.disabled:hover {
+        @media (min-width: map_get($grid-breakpoints, "lg")) {
+            margin-left: $spacer * 1.25;
+        }
+    }
+
+    &.disabled {
+        background-color: lighten($blue, 25%);
+
+        @media (min-width: map_get($grid-breakpoints, "lg")) {
+            margin-left: $spacer * 2;
+        }
+    }
+}
+
+
+body {
+    background-color: $gray-300;
+}

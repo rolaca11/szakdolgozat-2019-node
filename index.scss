@@ -40,12 +40,43 @@ input.form-control {
         left: 0;
         top: 0;
 
-        width: 70%;
+        width: 80%;
         height: 100%;
 
         z-index: 9;
 
-        background-color: $gray-300;
+        background-color: $white;
+    }
+
+    .nav-link {
+        display: flex;
+
+        @include media-breakpoint-up("lg") {
+            flex-direction: row-reverse;
+            .nav-count {
+                text-align: left;
+            }
+        }
+
+        @include media-breakpoint-down("lg") {
+            flex-direction: row;
+            .nav-count {
+                text-align: right;
+            }
+        }
+
+        .nav-count {
+            flex-grow: 1;
+            color: $gray-500;
+        }
+
+        .nav-text {
+            padding: 0 0.5rem;
+        }
+
+        & * {
+            flex: 0 0 auto;
+        }
     }
 }
 
@@ -131,24 +162,27 @@ input.form-control {
 }
 
 .nav-link {
-    background: $blue;
-    color: $white;
-
     @include transition($transition-base, line-height 0.1s ease-in-out);
 
     z-index: 1;
     position: relative;
 
-    margin-bottom: $spacer * .1875;
+    margin-bottom: $spacer * .25;
 
     @media (min-width: map_get($grid-breakpoints, "lg")) {
         margin-left: $spacer * 1.875;
         text-align: right;
         @include border-left-radius($border-radius);
+
+        background: $blue;
+        color: $white;
     }
 
     @media (max-width: map_get($grid-breakpoints, "lg")) {
         text-align: left;
+
+        background: $white;
+        color: $black;
 
         &:first-child {
             @include border-top-radius($border-radius);
@@ -156,14 +190,25 @@ input.form-control {
     }
 
     &.active {
-        background-color: $white;
-        color: $blue;
+        color: $black;
+
+        @include media-breakpoint-down("md") {
+            background-color: $gray-300;
+        }
+
+        @include media-breakpoint-up("lg") {
+            background-color: $white;
+        }
 
         @media (min-width: map_get($grid-breakpoints, "lg")) {
             margin-left: $spacer * .1875;
         }
 
         box-shadow: 0 0 0 $spacer*0.5 rgba($gray-300, .175) !important;
+    }
+
+    &:hover {
+        color: $black;
     }
 
     &:hover:not(.disabled):not(.active) {
@@ -179,7 +224,10 @@ input.form-control {
 
     &:hover:not(.disabled) {
         margin-left: 0;
-        font-size: $font-size-base * 1.1;
+
+        @include media-breakpoint-up("lg") {
+            font-size: $font-size-base * 1.1;
+        }
 
         z-index: 0;
     }

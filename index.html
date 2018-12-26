@@ -37,11 +37,21 @@
     <div id="cover"></div>
     <div class="container-fluid mt-3 flex-grow-1 d-flex flex-column pb-5">
         <div class="row flex-grow-1 mr-4 ml-2 justify-content-end">
-            <div id="menuPanel" class="menu-panel col-xl-2 col-lg-3 pl-3 pr-lg-0 pr-3 mt-lg-4 pt-5 pt-lg-0 float-md">
-                <a class="nav-link active" href="#">Aktív link</a>
-                <a class="nav-link disabled" href="#">inaktív link</a>
-                <a class="nav-link" href="#">Normál link</a>
-                <a class="nav-link" href="#">Normál link</a>
+            <div id="menuPanel" class="menu-panel col-xl-2 col-lg-3 pl-0 pl-lg-3 pr-0 mt-lg-4 pt-5 pt-lg-0 float-md">
+                <div class="nav-link" href="#">
+                    <span class="nav-icon"><i class="fas fa-home"></i></span>
+                    <span class="nav-text">Normál link</span>
+                    <span class="nav-count">111</span></div>
+                <div class="nav-link active" href="#">
+                    <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                    <span class="nav-text">Aktív link</span>
+                    <span class="nav-count">111</span></div>
+                <div class="dropdown-divider"></div>
+                <div class="nav-link" href="#">
+                    <span class="nav-icon"><i class="fas fa-home"></i></span>
+                    <span class="nav-text">Normál link</span>
+                    <span class="nav-count">111</span>
+                </div>
             </div>
             <div class="border rounded bg-white col-xl-8 col-lg-9 shadow-lg px-4 py-2 d-flex flex-column" style="z-index: 2;">
                 <h1 class="display-1">Headline 1</h1>

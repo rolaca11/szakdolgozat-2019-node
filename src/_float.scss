@@ -1,0 +1,50 @@
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/transition";
+
+$in-properties: (
+    "top": 0,
+    "left": 0
+) !default;
+
+$out-properties: (
+    "top": 0,
+    "left": -100%
+) !default;
+
+$float-ease-time: 0.2s !default;
+
+@mixin create-float($breakpoint, $breakpoints: $grid-breakpoints, $in-properties: $in-properties, $out-properties: $out-properties) {
+    @each $prop, $value in $in-properties {
+        @include transition(#{$prop} ease-in-out $float-ease-time);
+    }
+
+    @each $prop, $value in $out-properties {
+        #{$prop}: #{$value};
+    }
+
+    &.in {
+        @each $prop, $value in $in-properties {
+            #{$prop}: #{$value};
+        }
+    }
+
+    &.out {
+        @each $prop, $value in $out-properties {
+            #{$prop}: #{$value};
+        }
+    }
+};
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+
+    @if (map-get($grid-breakpoints, $breakpoint) != 0) {
+
+        $infix: breakpoint-infix($breakpoint);
+        @include media-breakpoint-down($breakpoint) {
+            .float#{$infix} {
+                @include create-float($breakpoint, $grid-breakpoints);
+            }
+        }
+    }
+}

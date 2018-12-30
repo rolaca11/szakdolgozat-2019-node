@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-    entry: ['./src/index.js'],
+    entry: ['./src/index.ts'],
     output: {
         path: __dirname + "/dist",
         publicPath: "/",
@@ -61,7 +61,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.ts']
     },
     plugins: [
         new MiniCssExtractPlugin({

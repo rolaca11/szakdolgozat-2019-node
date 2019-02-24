@@ -10,3 +10,13 @@ import './index.scss';
 import './test.css';
 import './MenuPanel';
 import './index.html'
+
+class Main {
+    constructor() {
+        jQuery(() => {
+            $("*[data-toggle='tooltip']").tooltip();
+        });
+    }
+}
+
+var main:Main = new Main();

@@ -177,7 +177,7 @@ input.form-control {
         text-align: right;
         @include border-left-radius($border-radius);
 
-        background: $blue;
+        background: $primary;
         color: $white;
     }
 
@@ -215,10 +215,10 @@ input.form-control {
     }
 
     &:hover:not(.disabled):not(.active) {
-        background-color: darken($blue, 3%);
+        background-color: darken($primary, 3%);
         color: #ffffff;
 
-        box-shadow: 0 0 0 $spacer*0.5 rgba( $blue, .2 ) !important;
+        box-shadow: 0 0 0 $spacer*0.5 rgba( $primary, .2 ) !important;
 
         @media (min-width: map_get($grid-breakpoints, "lg")) {
             margin-left: 0;
@@ -242,7 +242,7 @@ input.form-control {
     }
 
     &.disabled {
-        background-color: lighten($blue, 25%);
+        background-color: lighten($primary, 25%);
 
         @media (min-width: map_get($grid-breakpoints, "lg")) {
             margin-left: $spacer * 2;

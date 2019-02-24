@@ -6,6 +6,7 @@ window.jQuery = $;
 window.$ = $;
 
 import 'bootstrap';
-import '@fortawesome/fontawesome-free/js/all.min'
 import './index.scss';
+import './test.css';
 import './MenuPanel';
+import './index.html'

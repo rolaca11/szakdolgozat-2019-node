@@ -4,8 +4,12 @@ $custom-control-gutter: $custom-control-indicator-size + 0.5rem;
 
 $secondary: #fa6d16;
 
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
+
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
 @import "float";
 
 p {

@@ -1,3 +1,5 @@
+const CopyPlugin = require('copy-webpack-plugin');
+
 module.exports = {
     entry: ['./src/index.ts'],
     output: {
@@ -5,6 +7,15 @@ module.exports = {
         publicPath: "/",
         filename: "bundle.js"
     },
+    // plugins: [
+    //     new CopyPlugin([
+    //         {
+    //             from: "src/**/*.html",
+    //             to: "dist/index.html",
+    //             toType: "file"
+    //         }
+    //     ])
+    // ],
     module: {
         rules: [
             {
@@ -18,7 +29,7 @@ module.exports = {
                 loader: 'ts-loader'
             },
             {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                test: /\.(woff|woff2|eot|ttf|svg|otf)$/,
                 use: [{
                     loader: 'file-loader',
                     options: {
@@ -26,6 +37,18 @@ module.exports = {
                         outputPath: 'fonts/'
                     }
                 }]
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]',
+                            context: 'src'
+                        },
+                    },
+                ],
             }
         ]
     },

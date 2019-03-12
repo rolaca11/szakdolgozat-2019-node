@@ -15,6 +15,7 @@ class Main {
     constructor() {
         jQuery(() => {
             $("*[data-toggle='tooltip']").tooltip();
+            $(".toast").toast({});
         });
     }
 }

@@ -1,10 +1,14 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const glob = require('glob');
 
-const getFilename = (path) => {
-    const myRegexp = /(?:(?:src\/)+)((?:(?:\/)*(?:(?:(?:[^\/])+))+)+)\..*$/g;
+const getFilename = (path, baseDir = "./src") => {
+    const myRegexp = new RegExp("(?:(?:" + escapeRegexString(baseDir) + "(?:\\/*))+)((?:(?:\\/)*(?:(?:(?:[^\\/])+))+)+)\\..*$");
     return myRegexp.exec(path)[1];
 };
+
+const escapeRegexString = (string) => {
+    return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+}
 
 module.exports = {
     entry: () => {

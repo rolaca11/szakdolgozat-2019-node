@@ -1,5 +1,6 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const glob = require('glob');
+const path = require('path');
 
 const getFilename = (path, baseDir = "./src") => {
     const myRegexp = new RegExp("(?:(?:" + escapeRegexString(baseDir) + "(?:\\/*))+)((?:(?:\\/)*(?:(?:(?:[^\\/])+))+)+)\\..*$");
@@ -28,7 +29,7 @@ module.exports = env => {
             }, {});
         },
         output: {
-            path: __dirname + "/dist",
+            path: path.resolve(__dirname + "/" + env.TARGETDIR === undefined ? "dist/" : env.TARGETDIR),
             publicPath: "",
             filename: "[name].js"
         },

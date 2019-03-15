@@ -8,63 +8,68 @@ const getFilename = (path, baseDir = "./src") => {
 
 const escapeRegexString = (string) => {
     return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-}
+};
 
-module.exports = {
-    entry: () => {
-        const files = glob.sync("{./src/**/*.ts,./src/**/*.scss}");
+module.exports = env => {
+    const basedir = env.BASEDIR === undefined ? "./src" : env.BASEDIR;
+    return {
+        entry: () => {
+            let pattern = "{"+ basedir + "/**/*.ts," + basedir + "/**/*.scss}";
+            const files = glob.sync(pattern);
 
-        return files.reduce((acc, val) => {
-            let filename = getFilename(val);
-            if(acc[filename] === undefined) {
-                acc[filename] = [];
-            }
-            acc[filename].push(val);
-            return acc;
-        }, {});
-    },
-    output: {
-        path: __dirname + "/dist",
-        publicPath: "",
-        filename: "[name].js"
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
-            {
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                loader: 'ts-loader'
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|svg|otf)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'fonts/'
-                    }
-                }]
-            },
-            {
-                test: /\.html$/,
-                use: [
-                    {
+            return files.reduce((acc, val) => {
+
+                let filename = getFilename(val, basedir);
+                if (acc[filename] === undefined) {
+                    acc[filename] = [];
+                }
+                acc[filename].push(val);
+                return acc;
+            }, {});
+        },
+        output: {
+            path: __dirname + "/dist",
+            publicPath: "",
+            filename: "[name].js"
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    loader: 'babel-loader'
+                },
+                {
+                    test: /\.ts$/,
+                    exclude: /node_modules/,
+                    loader: 'ts-loader'
+                },
+                {
+                    test: /\.(woff|woff2|eot|ttf|svg|otf)$/,
+                    use: [{
                         loader: 'file-loader',
                         options: {
-                            name: '[path][name].[ext]',
-                            context: 'src'
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
+                    }]
+                },
+                {
+                    test: /\.html$/,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: '[path][name].[ext]',
+                                context: basedir
+                            },
                         },
-                    },
-                ],
-            }
-        ]
-    },
-    resolve: {
-        extensions: ['.js', '.jsx', '.ts']
-    }
+                    ],
+                }
+            ]
+        },
+        resolve: {
+            extensions: ['.js', '.jsx', '.ts']
+        }
+    };
 };

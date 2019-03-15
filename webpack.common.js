@@ -1,21 +1,29 @@
 const CopyPlugin = require('copy-webpack-plugin');
+const glob = require('glob');
+
+const getFilename = (path) => {
+    const myRegexp = /(?:(?:src\/)+)((?:(?:\/)*(?:(?:(?:[^\/])+))+)+)\..*$/g;
+    return myRegexp.exec(path)[1];
+};
 
 module.exports = {
-    entry: ['./src/index.ts'],
+    entry: () => {
+        const files = glob.sync("{./src/**/*.ts,./src/**/*.scss}");
+
+        return files.reduce((acc, val) => {
+            let filename = getFilename(val);
+            if(acc[filename] === undefined) {
+                acc[filename] = [];
+            }
+            acc[filename].push(val);
+            return acc;
+        }, {});
+    },
     output: {
         path: __dirname + "/dist",
-        publicPath: "/",
-        filename: "bundle.js"
+        publicPath: "",
+        filename: "[name].js"
     },
-    // plugins: [
-    //     new CopyPlugin([
-    //         {
-    //             from: "src/**/*.html",
-    //             to: "dist/index.html",
-    //             toType: "file"
-    //         }
-    //     ])
-    // ],
     module: {
         rules: [
             {

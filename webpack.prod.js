@@ -10,8 +10,6 @@ module.exports = merge(common, {
                 test: /\.(scss|css)$/,
                 exclude: /node_modules/,
                 use: [{
-                    loader: 'file-loader',
-                }, {
                     loader: MiniCssExtractPlugin.loader,
                 }, {
                     loader: 'css-loader',
@@ -32,10 +30,8 @@ module.exports = merge(common, {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: '[name].[hash].css',
-            chunkFilename: '[id].[hash].css',
+            filename: '[name].css',
+            chunkFilename: '[id].css',
         })
     ]
 });
